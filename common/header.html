@@ -1,9 +1,11 @@
 <script type="text/discourse-plugin" version="0.8">
-  api.replaceIcon('d-liked', 'carrot');
-  api.replaceIcon('d-unliked', 'far-carrot');
-  api.replaceIcon('notification.liked', 'far-carrot');
-  api.replaceIcon('notification.liked_2', 'far-carrot');
-  api.replaceIcon('notification.liked_many', 'far-carrot');
-  api.replaceIcon('notification.liked_consolidated', 'far-carrot');
-  api.replaceIcon('heart', 'carrot');
+  const h = require("virtual-dom").h;
+  const { iconNode } = require("discourse-common/lib/icon-library");
+
+  api.replaceIcon("d-liked", (attrs) => {
+    return h("i", {
+      className: "fa-solid fa-carrot d-icon d-liked", 
+      attributes: { "aria-hidden": "true" }
+    });
+  });
 </script>
